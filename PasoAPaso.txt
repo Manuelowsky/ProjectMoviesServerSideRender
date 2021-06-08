@@ -1,0 +1,7 @@
+1. Inicializar repositorio: git init
+
+3. Guardar archivos y cambios en el repositorio: git remote add origin https://github.com/Manuelowsky/platziVideoReactRouterYRedux
+                                       git status 
+                                       git add .
+                                       git commit -m "Agregando archivos"
+                                       git push origin master
