@@ -1,7 +1,150 @@
 1. Inicializar repositorio: git init
 
-3. Guardar archivos y cambios en el repositorio: git remote add origin https://github.com/Manuelowsky/platziVideoReactRouterYRedux
+2. Guardar archivos y cambios en el repositorio: git remote add origin https://github.com/Manuelowsky/ProjectMoviesServerSideRender
                                        git status 
                                        git add .
                                        git commit -m "Agregando archivos"
                                        git push origin master
+
+3. Actualizar dependencias de npm: - Eliminar el package-log.json
+                                   - npm install
+                                   - npm outdated (Para observar cuales estan desactualizados)
+                                   - npm update --legacy-peer-deps  (Para actualizar las dependencias)
+
+/*Express*/
+
+4. Crear la carpeta: src/server
+
+5. Crear la carpeta: src/frontend (Llevamos toda los archivos de la lógica del frontend allí)
+
+6. Crear el archivo: src/server/index.js
+
+7. Crear el archivo: src/server/server.js
+
+8. Instalar la dependencia para poder usar las configuraciones de babel: npm install @babel/register
+
+9. Instalar express: npm install express dotenv
+
+10. Agregar el script en package.json: "start:dev": "node src/server/index"
+
+/*Nodemon para cambios automaticos del servidor*/
+
+11. Instalar la dependencia: npm install nodemon --dev
+
+12. Modificar el script en package.json: "start:dev": "nodemon src/server/index"
+
+/*Variables de entorno*/
+
+13. Instalar la dependencia: npm install dotenv
+
+14. Crear el archivo: .env
+
+15. Crear la carpeta: server/config
+
+16. Crear el archivo: server/config/index
+
+/*Integración de webpack y express (Para que se refresque nuestra app en tiempo real)*/
+
+17. Instalar las dependencias: npm install webpack-dev-middleware webpack-hot-middleware --dev
+
+18. Configurar plugin de webpack en webpack.config.js
+
+19. Instalar la dependencia: npm install react-hot-loader --dev
+
+/*Configurando el HTML para servir nuestra app desde express (sesde el servidor)*/
+
+20. Ir al archivo server.js y agregar el html en el app.get()
+
+21. Realizar las modificaciones del archivo webpack
+
+22. Inspeccionar la página e ir a la configuracion (Ruedita a mano derecha), deshabilitar javascript 
+    y asi ver si la app es ssr (Server side rendering). Podemos ver que al recargar no se carga nada
+    de js, lo que indica que la app se esta llamando desde 
+
+/*Abstrayendo React Router, creando history (Renderizando las rutas) y haciendo initialState más accesible (Crear el objeto en archivo separado) */
+
+23. Instalar las dependencias para mantener un historial mediante sesiones y añadir configuracion extra al 
+    enrutador, en esta caso React Router: npm i history react-router-config react-router.
+
+24. Crear el archivo de rutas del lado del servidor: src/frontend/routes/serverRoutes.js
+
+25. Crear el archivo del initialS: src/frontend/initialState.js
+
+/*Convirtiendo nuestros componentes en strings para que el servidor pueda pasar la respuesta*/
+
+26. Realizar las respectivas configuraciones en el server.js para convertir a string nuestra app.
+
+27. Instalar la dependencia para ignorar estilos desde el lado del servidor: npm install ignore-styles
+
+/*Configurando los assets (imagenes, estilos) para que se muestren en el ssr*/
+
+28. Instala las dependencias: npm i file-loader@5.1.0
+                              npm install asset-require-hook
+
+29. Hasta aca ya tenemos nuestro servidor de express pueda servir la aplicacion de react, ssr. (En nuestro PC y github)                             
+
+/*Configurando nuestro proyecto (Servidor) para producción*/
+
+30. Crear la carpeta donde se guardaran todos los archivos que generemos: src/server/public 
+
+31. Instalar la dependencia: npm install helmet
+
+32. Agregar la siguiente linea al gitignore: .src/server/public
+
+33. Modificar y agregar algunas configuraciones en el webpack.config
+
+34. Para probarlo en modo production: - Cambiar ENV: production, PORT: 3001
+                                      - Ejecutar: npm run build
+                                      - Ejecutar: node src/server
+
+35. Para probarlo en modo desarrollo: - Cambiar ENV: development, PORT: 3000
+                                      - Ejecutar: npm run start:dev
+
+36. Instalar la dependencia: npm install compression-webpack-plugin --save-dev                                 
+
+37. Instalar el plugin: npm i terser-webpack-plugin --save-dev
+
+38. Instalar el paquete: npm i webpack-manifest-plugin 
+
+39. Crear el archivo: src/server/getManifest.js
+
+40. Instalar la dependencia: npm i -D clean-webpack-plugin
+
+/*
+    Vendorfiles: Extraer archivos, separar la lógica de los archivos que estamos importando en un archivo vendor
+    El archivo vendor.js contiene todas nuestras dependencias de un sitio web.
+*/
+
+41. Configurar los vendors en el webpack.config
+
+/* Configurando ESLint */
+
+42. Instalar la dependencias: npm i eslint-loader eslint --save-dev
+
+43. Agregar el script para arreglar algunos errores con lint: "lint": "eslint src/frontend/ --ext .js --ext .jsx --fix"
+
+44. Arreglar el resto de rrores manualmente
+
+/* Implementando Next.js */
+
+45. Crear la carpeta: PlatziVideo/nextjs
+
+46. Iniciar nuestro proyecto, desde nextjs: npm init
+
+47. Instalar las dependencias, desde nextjs: npm i react react-dom next
+
+48. Crear los scripts en el package.json del nextjs
+
+49. Crear la carpeta: nextjs/pages
+
+50. Crear el archivo: nextjs/pages/index.js
+
+/* Implementando Gatsby.js */
+
+51. Instalar la dependencia, desde PlatziVideo: npm i -g gatsby-cli
+
+52. Ejecutar el siguiente comando: gatsby new platzivideo-gatsby
+
+53. Ejecutar: cd platzivideo-gatsby y luego gatsby develop
+
+54. Validar en el puerto que nos indica gatsby

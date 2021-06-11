@@ -5,5 +5,10 @@
       "@babel/preset-env",
       //Babel preset-react para trabajar con jsx y React
       "@babel/preset-react"
-  ] 
+  ],
+  //Plugins
+  "plugins": [
+    //Indicando que se cargara react-hot-loader con babel
+    "react-hot-loader/babel"
+  ]
 }
